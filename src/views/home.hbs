@@ -1,0 +1,13 @@
+<main>
+  <div class="home-container">
+    <h2>Productos</h2>
+    <div class="home-wrapp">
+      {{#each product}}
+      <div class="home-slide">
+        <p class="home-title">{{this.title}}</p>
+        <p class="home-price">$ {{this.price}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</main>

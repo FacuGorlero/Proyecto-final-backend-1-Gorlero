@@ -1,0 +1,48 @@
+<main>
+  <section class="cartContainer">
+    <h3>CARRITO</h3>
+    {{#if cartError}}
+      <p>Se ha producido un error al momento de buscar el carrito</p>
+    {{else}}
+      <hr>
+      <p>Su carrito es: {{cartId}}</p>
+      <hr>
+      {{#if cartNoEmpty}}
+        {{#each products}}
+          <div class="product">
+            <img src="{{this.product.thumbnail}}" alt="{{this.product.title}}" />
+            <p>{{this.product.title}}</p>
+            <p>Unidades: {{this.quantity}}</p>
+            <p>{{this.product.price}}</p>
+            <p>Total: {{this.total}}</p>
+          </div>
+        {{/each}}
+        <hr>
+        <p><strong>Total del carrito: {{totalAmount}}</strong></p> <!-- Mostrar el total del carrito -->
+        <button id="clearCartButton">Vaciar carrito</button>
+      {{else}}
+        <p>Su carrito está vacío</p>
+      {{/if}}
+    {{/if}}
+  </section>
+</main>
+
+<script>
+  document.getElementById('clearCartButton').addEventListener('click', async () => {
+    try {
+      const response = await fetch(`/api/carts/66cdeabf0a5175cd15709803`, {
+        method: 'DELETE'
+      });
+      const result = await response.json();
+      if (result.status === 'ok') {
+        // Redirige o actualiza la página para reflejar los cambios
+        window.location.reload();
+      } else {
+        alert('No se pudo vaciar el carrito.');
+      }
+    } catch (error) {
+      console.error('Error al vaciar el carrito:', error);
+      alert('Error al vaciar el carrito.');
+    }
+  });
+</script>

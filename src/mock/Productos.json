@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "title": "Remera boca",
+    "description": "Remera original de boca",
+    "code": "1007706",
+    "price": 10000,
+    "status": true,
+    "stock": 20,
+    "category": "Remeras",
+    "thumbnail": ""
+  },
+  {
+    "id": 2,
+    "title": "Ejemplo remera",
+    "description": "sin descripcion",
+    "code": "10",
+    "price": "10000",
+    "status": true,
+    "stock": "10",
+    "category": "Remeras",
+    "thumbnail": ""
+  }
+]

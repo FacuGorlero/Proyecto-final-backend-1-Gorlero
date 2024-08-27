@@ -1,0 +1,46 @@
+<main>
+  <div class="home-container">
+    Productos en tiempo real
+  <div class="home-wrapper" id="swiper">
+    {{#each product}}
+    <div class="home-slide">
+    {{!-- <img src={{this.thumbnail}}> --}}
+    <p class="rl-title">{{this.title}}</p>
+    <p class="rl-price">Precio: $ {{this.price}}</p>
+    <p class="rl-code">Código: {{this.code}}</p>
+    <p class="rl-descripcion">Descripcion: {{this.description}}</p>
+    <button onclick="deleteProduct('{{this.code}}')">Eliminar</button>
+    </div>
+    {{/each}}
+  </div>
+  </div>
+  <br>  
+
+
+<form id="form" class="form">
+  <div class=" formcolumn">
+    <div>
+      <label for="formtitulo">Producto</label>
+      <input type="text" name="formtitulo" id="formtitulo" value="Ejemplo remera" placeholder="Ingrese su producto">
+    </div>
+    <div> <label for="formcategoria">Categoria</label>
+      <input type="text" name="formcategoria" id="formcategoria" value="Remeras" placeholder="Categoria">
+      </div>
+      <div>
+        <label for="formprecio">Precio</label>
+      <input type="number" name="formprecio" id="formprecio" value="10000" placeholder="Precio">
+      </div>
+    <div> <label for="formStock">Stock</label>
+      <input type="text" name="formStock" id="formStock" value="10" placeholder="Cantidad de productos">
+      </div>
+      <div>
+         <label for="formcode">Codigo del producto</label>
+      <input type="text" name="formcode" id="formcode" value="10" placeholder="Ingrese el codigo">
+      </div>
+      <input class="formbutton" type="submit" value="Cargar producto" id="formbutton">
+  </div>
+</form>
+</main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/realTimeProducts.js"></script>
